@@ -20,6 +20,16 @@ def compute_inverse():
   function = input("Enter F(s)= ")
   try:
     F = sy.sympify(function, locals={'s': s, 't': t})
+    F_rational = sy.together(F)
+    numer, denom = sy.fraction(F_rational)
+    numer_degree = sy.degree(numer, s)
+    denom_degree = sy.degree(denom, s)
+        
+      if numer_degree >= denom_degree:
+          print("\nError: F(s) is not a proper rational function.")
+          print("The degree of the numerator must be less than the denominator.")
+          return
+
     result = inverse_laplace_transform(F, s, t)
     print("\nInverse laplace transform: ")
     print("L^-1{ ", F, "} =", result)
