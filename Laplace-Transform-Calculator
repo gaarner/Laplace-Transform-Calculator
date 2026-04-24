@@ -33,7 +33,7 @@ def menu():
     print("Option 1: Laplace Transform")
     print("Option 2: Inverse Laplace Transform")
     print("Option 3: END")
-    choice = input("Choose Option: "
+    choice = input("Choose Option: ")
 
     if choice == "1":
       compute_laplace()
