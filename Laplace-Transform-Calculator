@@ -28,8 +28,8 @@ def compute_inverse():
       return
     F_rational = sy.together(F)
     numer, denom = sy.fraction(F_rational)
-    numer_degree = sy.degree(numer, s)
-    denom_degree = sy.degree(denom, s)
+    numer_degree = sy.Poly(numer, s).degree()
+    denom_degree = sy.Poly(denom, s).degree()
         
       if numer_degree >= denom_degree:
           print("\nError: F(s) is not a proper rational function.")
