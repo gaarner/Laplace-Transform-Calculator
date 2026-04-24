@@ -35,11 +35,11 @@ def menu():
     print("Option 3: END")
     choice = input("Choose Option: "
 
-    if choice == "1"
+    if: choice == "1"
       compute_laplace()
-    elif choice == "2"
+    elif: choice == "2"
       compute_inverse()
-    elif choice == "3"
+    elif: choice == "3"
       print("Calculator Closed")
       break
     else:
