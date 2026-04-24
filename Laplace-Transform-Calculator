@@ -9,7 +9,7 @@ t, s = sy.symbols('t s', positive=True)
 def compute_laplace():
   function = input("Enter f(t)= ")
   try:
-    F = sy.sympify(function, locals={'s': s, 't': t})
+    f = sy.sympify(function, locals={'s': s, 't': t})
     result = laplace_transform(f, t, s, noconds=True)
     print("\nLaplace Transform: ")
     print("L{", f, "} =", result)
