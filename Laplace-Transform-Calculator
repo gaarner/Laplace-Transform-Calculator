@@ -1,0 +1,47 @@
+# Imports
+import sympy as sy
+from sympy.integrals.transforms import laplace_transform, inverse_laplace_transform
+
+#Variables
+t, s = sy.symbols('t s', positive=True)
+
+# Computation
+def compute_laplace():
+  function = input("Enter f(t)= ")
+  try:
+    F = sy.sympify(function, locals={'s': s, 't': t})
+    result = laplace_transform(f, t, s, noconds=True)
+    print("\nLaplace Transform: ")
+    print("L{", f, "} =", result)
+  except Exception as E:
+    print("Invalid function. Error: ", E)
+
+def compute_inverse():
+  function = input("Enter F(s)= ")
+  try:
+    F = sy.sympify(function, locals={'s': s, 't': t})
+    result = inverse_laplace_transform(F, s, t)
+    print("\nInverse laplace transform: ")
+    print("L^-1{ ", F, "} =", result)
+  except Exception as E:
+    print("Invalid transform. Error: ", E)
+
+# Inputs
+def menu():
+  while True:
+    print("\n Laplace Calculator ")
+    print("Option 1: Laplace Transform")
+    print("Option 2: Inverse Laplace Transform")
+    print("Option 3: END")
+    choice = input("Choose Option: "
+
+    if choice == "1"
+      compute_laplace()
+    elif choice == "2"
+      compute_inverse()
+    elif choice == "3"
+      print("Calculator Closed")
+      break
+    else:
+      print("Invalid input, please try again!")
+menu()
