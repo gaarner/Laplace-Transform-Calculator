@@ -10,6 +10,9 @@ def compute_laplace():
   function = input("Enter f(t)= ")
   try:
     f = sy.sympify(function, locals={'s': s, 't': t})
+    if s in f.free_symbols:
+      print("\nError: f(t) should only contain 't' not 's'.")
+      return
     result = laplace_transform(f, t, s, noconds=True)
     print("\nLaplace Transform: ")
     print("L{", f, "} =", result)
@@ -20,6 +23,9 @@ def compute_inverse():
   function = input("Enter F(s)= ")
   try:
     F = sy.sympify(function, locals={'s': s, 't': t})
+    if t in F.free_symbols:
+      print("\nError: F(s) should only contain 's' not 't'.")
+      return
     F_rational = sy.together(F)
     numer, denom = sy.fraction(F_rational)
     numer_degree = sy.degree(numer, s)
